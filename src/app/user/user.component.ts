@@ -18,6 +18,8 @@ export class UserComponent {
   @Input({ required: true }) avatar!: string; // ! is for telling typescript that we will assign the value without ts knowing where
   @Input({ required: true }) name!: string;
 
+  //avatar = input.required<string>();  <-- this is how to use input signal instead of @Input
+
   get userImage() {
     return 'assets/users/' + this.avatar;
   }
