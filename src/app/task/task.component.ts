@@ -8,5 +8,5 @@ import { Component, Input, Output } from '@angular/core';
   styleUrl: './task.component.css',
 })
 export class TaskComponent {
-  @Input({ required: true }) name!: string;
+  @Input() name?: string; //input to receive data from parent (app.component)
 }

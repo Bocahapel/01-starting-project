@@ -13,12 +13,15 @@ import { TaskComponent } from './task/task.component';
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserId = 'u1';
+  selectedUserId = 'u1'; //A property that holds the currently selected user ID (default: 'u1')
 
+  //A getter that returns the full user object based on the current selectedUserId.
+  // It re-evaluates automatically whenever selectedUserId changes.
   get selectedUser() {
-    return this.users.find((user) => user.id === this.selectedUserId)!;
+    return this.users.find((user) => user.id === this.selectedUserId);
   }
 
+  //A method that receives data (user ID) from the child component and updates the selectedUserId accordingly.
   onSelectUser(id: string) {
     this.selectedUserId = id;
   }
