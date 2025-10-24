@@ -1,23 +1,23 @@
 <app-header></app-header>
 <main>
   <ul id="users">
+    @for (user of users; track user.id) {
+
     <li>
       <app-user
-        [user]="users[0]"
+        [user]="user"
         (select)="onSelectUser($event)"
       /><!--the "(select)=" will receivet the output from app-user component-->
     </li>
-    <li>
-      <app-user [user]="users[1]" (select)="onSelectUser($event)" />
-    </li>
-    <li>
-      <app-user [user]="users[2]" (select)="onSelectUser($event)" />
-    </li>
-    <li>
-      <app-user [user]="users[3]" (select)="onSelectUser($event)" />
-    </li>
+    }
   </ul>
+
+  @if (selectedUser) {
+
   <app-task
-    [name]="selectedUser ? selectedUser.name : 'No User Name Found'"
+    [name]="selectedUser.name"
   /><!--passing the data from parent to child component (task.component)-->
+  }@else {
+  <p id="fallback">Select a user to see their task!</p>
+  }
 </main>

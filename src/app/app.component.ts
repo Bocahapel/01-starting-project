@@ -13,7 +13,8 @@ import { TaskComponent } from './task/task.component';
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserId = 'u1'; //A property that holds the currently selected user ID (default: 'u1')
+  //selectedUserId = 'u1'; //A property that holds the currently selected user ID (default: 'u1')
+  selectedUserId?: string;
 
   //A getter that returns the full user object based on the current selectedUserId.
   // It re-evaluates automatically whenever selectedUserId changes.

@@ -4,6 +4,8 @@ import { Component, EventEmitter, input, Input, Output } from '@angular/core';
 
 //const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
+type User = { id: string; name: string; avatar: string };
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -20,12 +22,13 @@ export class UserComponent {
   // @Input({ required: true }) id!: string;
   // @Input({ required: true }) avatar!: string;
   // @Input({ required: true }) name!: string;
-  @Input({ required: true }) user!: {
-    id: string;
-    name: string;
-    avatar: string;
-  };
+  // @Input({ required: true }) user!: {
+  //   id: string;
+  //   name: string;
+  //   avatar: string;
+  // };
 
+  @Input({ required: true }) user!: User;
   @Output() select = new EventEmitter(); //Output send data from this child to parent (app.component), check app.component.html
 
   //avatar = input.required<string>();  <-- this is how to use input signal instead of @Input
