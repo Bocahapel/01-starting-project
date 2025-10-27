@@ -6,14 +6,14 @@
     </menu>
   </header>
   <ul>
+    @if (selectedUserTask.length > 0){ @for (task of selectedUserTask; track
+    task.id) {
+
     <li>
-      <app-tasklist />
+      <app-tasklist [task]="task" (complete)="onCompleteTask($event)" />
     </li>
-    <li>
-      <app-tasklist />
-    </li>
-    <li>
-      <app-tasklist />
-    </li>
+    } }@else {
+    <p>No tasks found.</p>
+    }
   </ul>
 </section>

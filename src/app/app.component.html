@@ -6,8 +6,9 @@
     <li>
       <app-user
         [user]="user"
+        [selected]="user.id === selectedUserId"
         (select)="onSelectUser($event)"
-      /><!--the "(select)=" will receivet the output from app-user component-->
+      /><!--the "(select)=" will receive the output from app-user component-->
     </li>
     }
   </ul>
@@ -15,6 +16,7 @@
   @if (selectedUser) {
 
   <app-task
+    [userId]="selectedUser.id"
     [name]="selectedUser.name"
   /><!--passing the data from parent to child component (task.component)-->
   }@else {
