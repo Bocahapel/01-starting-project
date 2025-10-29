@@ -1,11 +1,12 @@
 import { Component, Input, Output } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { TasklistComponent } from './tasklist/tasklist.component';
+import { NewtaskComponent } from './newtask/newtask.component';
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [HeaderComponent, TasklistComponent],
+  imports: [HeaderComponent, TasklistComponent, NewtaskComponent],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css',
 })
@@ -13,7 +14,7 @@ export class TaskComponent {
   // Inputs are properties that receive data from the parent component (app.component)
   @Input({ required: true }) name!: string;
   @Input({ required: true }) userId!: string;
-
+  isAddingTask = false;
   // Mock data: A hardcoded list of task objects
   tasks = [
     {
@@ -49,5 +50,9 @@ export class TaskComponent {
 
   onCompleteTask(id: string) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
+
+  onStartAddTask() {
+    this.isAddingTask = true;
   }
 }
